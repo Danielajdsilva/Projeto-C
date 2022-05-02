@@ -1,0 +1,163 @@
+	***************************
+		BUBBLE SORT
+	***************************
+
+Funciomento
+
+1. Primeira Iteração (Comparar e Trocar)
+	• A partir do primeiro índice, compara o primeiro e o segundo elemento.
+	• Se o primeiro elemento for maior que o segundo elemento, eles serão trocados.
+	• Agora, compare o segundo e o terceiro elementos. Troque-os se não estiverem em ordem.
+	• O processo acima continua até o último elemento.
+
+2. Iteração restante
+	• O mesmo processo continua para as iterações restantes.
+	• Após cada iteração, o maior elemento entre os elementos não ordenados é colocado no final.
+	• A matriz é classificada quando todos os elementos não classificados são colocados em suas posições corretas.
+
+	Melhor caso	O(n^2 );
+	Pior caso	O(n^2 );
+
+1. Complexidades de tempo
+	Complexidade de pior caso: Se quisermos classificar em ordem crescente e a matriz estiver em ordem decrescente, o pior caso ocorrerá.O(n2)
+	Se a matriz já estiver classificada, não há necessidade de classificação.
+	A classificação de bolhas requer dois loops. Assim, a complexidade é n*n ou O(n^2)
+
+
+	******************************
+		INSERTION SORT
+	******************************
+
+Funciomento
+	1. Primeira Iteração (Ordenação por Inserção);
+		• O primeiro elemento na matriz é considerado classificado. Pegue o segundo elemento e armazene-o separadamente em "chave"
+		• Compare a "chave" com o primeiro elemento. Se o primeiro elemento for maior que "chave", então "chave" é colocado na frente do primeiro elemento.
+
+	2. Agora, os dois primeiros elementos são classificados.
+		• Pegamos o terceiro elemento e comparamos com os elementos à esquerda dele. 
+		• Colocando logo atrás do elemento menor que ele. Se não houver nenhum elemento menor que ele, coloque-o no início do array.
+		• Da mesma forma, é classificado cada elemento não classificado em sua posição correta.
+		
+	Complexidade de pior caso: 
+	• Uma matriz que esteja em ordem crescente e você queira classificá-la em ordem decrescente.
+	Nesse caso, ocorre do pior caso. Cada elemento deve ser comparado com cada um dos outros elementos,
+	portanto, para cada enésimo elemento, são feitas várias comparações. Assim, o número total de comparações = O(n^2)
+	Fazendo assim ser um crecimento quadrático.
+
+	Complexidade de melhor caso: O(n)
+	• Quando a matriz já está classificada, o loop externo é executado nvárias vezes, enquanto o loop interno não é executado.
+	Portanto, há apenas um nnúmero de comparações. Assim, a complexidade é linear.
+
+
+
+
+	******************************
+		SELECTION SORT
+	******************************
+
+Funciomento
+
+	1. Primeira interação
+		• Define o primeiro elemento como o mínimo
+	2. Compara o mínimo com o segundo elemento. 
+		• Se o segundo elemento for menor que mínimo, atribui o segundo elemento como mínimo.	
+		• Compara mínimo com o terceiro elemento. Novamente, se o terceiro elemento for menor, 
+		atribui mínimo ao terceiro elemento, caso contrário, não ha nenhuma ação.
+		• O processo continua até o último elemento.
+	3. Após cada iteração
+		• O mínimo é colocado na frente da lista não classificada.
+	4. Para cada iteração
+		• A chave começa a partir do primeiro elemento não classificado.
+		• Os passos 1 a 3 são repetidos até que todos os elementos sejam colocados em suas posições corretas.
+
+
+
+Complexidade 
+
+	Podemos analisar a complexidade simplesmente observando o número de loops. Existem 2 loops, então a complexidade é n*n = O(n^2).
+	Complexidade de pior caso: 
+		• Se quisermos ordenar em ordem crescente e a matriz estiver em ordem decrescente, o pior caso ocorre. O(n^2).
+		• Complexidade de melhor caso: ocorre quando o array já está ordenado
+
+	A complexidade de tempo da ordenação de seleção é a mesma em todos os casos. A cada passo, encontramos o elemento mínimo
+	e colocamos no lugar certo. O elemento mínimo não é conhecido até que o final da lista não seja alcançado.
+
+
+	**************************
+		QUICK SORT
+	**************************
+
+Funcionamento
+	1. Dividir para conquistar
+		• Selecione o elemento pivô
+		• Existem diferentes variações de quicksort onde o elemento pivô é selecionado de diferentes posições.
+		estarei selecionando o elemento mais à direita da matriz como o elemento pivô.
+
+	2. Reorganize a matriz
+		• Os elementos do array são rearranjados para que os elementos menores que o pivô sejam colocados à esquerda
+		e os elementos maiores que o pivô sejam colocados à direita.
+		• O elemento pivô é comparado com os elementos que começam no primeiro índice.
+		• Se o elemento for maior que o elemento pivô, um segundo ponteiro será definido para esse elemento.
+		• O pivô é comparado com outros elementos. Se um elemento menor que o elemento pivô for atingido,
+		o elemento menor será trocado pelo elemento maior encontrado anteriormente.
+		• Novamente, o processo é repetido para definir o próximo elemento maior como o segundo ponteiro. E trocamos por outro elemento menor.
+		• O processo continua até que o penúltimo elemento seja alcançado.
+		• Por último o elemento pivô é trocado com o segundo ponteiro
+
+	3. Dividir submatrizes
+		• Elementos de pivô são novamente escolhidos para as subpartes esquerda e direita separadamente. E, o passo 2 é repetido.
+
+
+
+Complexidade de pior caso O(n^2): Ocorre quando o elemento pivô escolhido é o maior ou o menor elemento. Esta condição leva ao caso em que
+o elemento pivô se encontra em uma extremidade do array ordenado. Um sub-array está sempre vazio e outro sub-array contém elementos.
+Assim, quicksort é chamado apenas neste sub-matriz. No entanto, o algoritmo quicksort tem melhor desempenho para pivôs dispersos.
+
+Complexidade de melhor caso: O(n*log n)
+Ocorre quando o elemento pivô é sempre o elemento do meio ou próximo ao elemento do meio.
+
+
+	**************************
+		MERGE SORT
+	**************************
+
+
+
+A função MergeSort divide repetidamente o array em duas metades até chegarmos a um estágio em que tentamos executar MergeSort em um subarray de tamanho 1 
+
+Para ordenar um array inteiro, precisamos chamar MergeSort(A, 0, length(A)-1)
+o algoritmo de ordenação por mesclagem divide recursivamente o array em metades até chegarmos ao caso base do array com 1 elemento.
+Depois disso, a função de mesclagem pega as sub-matrizes classificadas e as mescla para classificar gradualmente a matriz inteira.
+
+
+ função de mesclagem funciona da seguinte forma:
+
+A matrizA[0..5]contém dois subarrays ordenados lista[0..3] e lista[4..5]. Vamos ver como a função de mesclagem mesclará os dois arrays.
+Etapa 1: criar cópias duplicadas de submatrizes a serem classificadas
+Etapa 2: manter o índice atual de submatrizes e matriz principal
+Passo 3: Até chegarmos ao final de L ou R, escolha o maior entre os elementos L e R e coloque-os na posição correta em lista[p..r]
+Passo 4: Quando ficarmos sem elementos em L ou R, peguamos os elementos restantes e coloque em lista[p..r]
+
+
+Complexidade de tempo
+Complexidade do melhor caso:O(n*log n)
+
+Complexidade do pior caso:O(n*log n)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
